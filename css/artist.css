@@ -14,6 +14,7 @@
 .profile-img{
 	width: 150px;
 	max-height:150px;
+	padding: 0 auto;
 }
 .upload-profile, .upload-cover{
 	width: 100%;
@@ -70,9 +71,7 @@ input[type=submit]:hover{
 	max-height: 100%;
 }
 .iframe{
-	min-height: 1000px;
 	width: 100%;
-	background: red;
 	margin-top:49%;
 	z-index: 1000;
 	position: relative;

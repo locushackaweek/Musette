@@ -15,6 +15,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/iframe.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -159,12 +160,7 @@
         </div>
 			</div>
 			<div class="iframe">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         <iframe id="ifrm" src="php/video.php" onload="setIframeHeight(this.id)" style="width:100%;border: none;"></iframe>
 			</div>
 		</div>
   </div>
