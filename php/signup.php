@@ -32,7 +32,7 @@ else
 
 	if ($con->query($sql) === TRUE)
 	{
-	$sql="CREATE TABLE $uname( `ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(100) NOT NULL , `URL` VARCHAR(100) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB";
+	$sql="CREATE TABLE $uname( `ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(500) NOT NULL , `URL` VARCHAR(500) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB";
 	}
 }
 if ($con->query($sql) === TRUE)
