@@ -27,11 +27,13 @@ else
 	$to=$_POST["to"];
 	$rate=$_POST["rate"];
 
-	$sql = "INSERT INTO `artist`(`S.N`, `First Name`, `Middle Name`, `Last Name`, `Address`, `Contact`, `D.O.B`, `Gender`, `Username`, `Password`, `Email`, `SContact`, `AvailableFrom`, `AvailableTo`, `Rate`, `Created Date`) VALUES (NULL, '$fname' ,'$mname','$lname','$address','$contact','$date','$gender','$uname','$pword','$email','$SContact','$from','$to','$rate', CURRENT_TIMESTAMP)";
+	$sql = "INSERT INTO `artist`(`S.N`, `First Name`, `Middle Name`, `Last Name`, `Address`, `Contact`, `D.O.B`, `Gender`, `Username`, `Password`, `Email`, `SContact`, `AvailableFrom`, `AvailableTo`, `Rate`, `Created Date`) VALUES (NULL, '$fname' ,'$mname','$lname','$address','$contact','$date','$gender','$uname','$pword','$email','$Scontact','$from','$to','$rate', CURRENT_TIMESTAMP)";
 	mkdir("../upload/video/".$uname);
-	$sql="CREATE TABLE $uname( `ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(100) NOT NULL , `URL` VARCHAR(100) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB";
-	
 
+	if ($con->query($sql) === TRUE)
+	{
+	$sql="CREATE TABLE $uname( `ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(100) NOT NULL , `URL` VARCHAR(100) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB";
+	}
 }
 if ($con->query($sql) === TRUE)
 {
