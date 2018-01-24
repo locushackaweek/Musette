@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Terms and Conditions</title>
+<link rel="icon" href="icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body class="jumbotron">
+<div class="jumbotron container">
+	<h2  class="text-danger">Terms and Conditions!</h2>
+		<ul class="lead text-primary" >
+			<li>Before hiring you need to have some deposits in our account.</li>
+			<li>Once you hire the artist the fee of artist is automatically deducted from your deposit.</li>
+			<li>Inorder to hire the artist you have to inform atleast 6 hours before the showtime. </li>
+			<li>To cancel the order  of the artist you have to inform us atleast 2 hours before the showtime.</li>
+			<li>The amount deducted is not refundable for non-genuine reasons.</li>
+			<li>You must not spam the artists.</li>
+		</ul>
+	<form action="signup-user.htm" method="POST">
+		<input type="checkbox" id="checkme" value="1"> I agree the terms and conditions.<br><br>
+		<button type="button" class="btn-danger btn-lg pull-right" data-toggle="modal" data-target="#myModal" style="margin-left: 15px;">Cancel</button>
+		<input  type="submit" class="btn-primary btn-lg pull-right " name="sendNewSms" class="inputButton" disabled="disabled" id="sendNewSms" value="Next" </a>
+			<script>
+			    var checker = document.getElementById('checkme');
+			    var sendbtn = document.getElementById('sendNewSms');
+ 				checker.onchange = function()
+ 				{
+					if(this.checked)
+					{
+    				sendbtn.disabled = false;
+					} 
+					else
+				 	{
+   					 sendbtn.disabled = true;
+					}
+				}
+			</script>
+		<div id="myModal" class="modal fade" role="dialog">
+ 			<div class="modal-dialog">
+    			<div class="modal-content">
+       				<div class="modal-body">
+        				<p>Do you really want to cancel?</p>
+      				</div>
+     						<div class="modal-footer">
+       <a href="index.php"> <button type="button" class="btn btn-default" >Yes</button></a>
+        <button type="button" class="btn btn-default" class="close" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+	</form>
+
+	
+</div>
+</body>
+</html>

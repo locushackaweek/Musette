@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="css/signup.css">
+	<script type="text/javascript" src="js/validate-form.js"></script>
+	<script>
+		function checkerror()
+		{
+			window.alert("Invalid Username and Password");
+		}
+	</script>
+</head>
+<body onload="checkerror()">
+<div class="row">
+	<div class="col-md-12">
+		<form onsubmit="return checklogin()" action="php/login.php" role="form" method="POST">
+			<table>
+				<tr>
+					<td colspan="2"><h1>LOG IN</h1></td>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td><input type="text" class="form-control" id="usrname" name="usrname" placeholder="Username"></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="Password" class="form-control" id="pwrd" name="pwrd" placeholder="Password"></td>
+				</tr>
+				<tr>
+					<td>Account</td>
+					<td>
+						<select name="account-type">
+			              <option value="User">User</option>
+			              <option value="Artist">Artist</option>
+			            </select>
+			        </td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" name="submit" value="LOG IN">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+</body>
+</html>
