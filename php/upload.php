@@ -1,6 +1,8 @@
 <?php
 session_start();
 $pix=$_SESSION["pix"];
+$vname=$_SESSION["username"];
+
 if (isset($_FILES['profile'])) {
 	$name = $_FILES['profile']['name'];
 	$size = $_FILES['profile']['size'];
@@ -92,10 +94,20 @@ if (isset($_FILES['video'])) {
 			{
 				if($size<$max_size)
 				{
-					$location = '../upload/video/';
-					if(move_uploaded_file($tmp_name, $location.$name))
+					$location = '../upload/video/'.$vname.'/';
+					$video=$location.$name;
+					if(move_uploaded_file($tmp_name, $video))
 					{
-						echo 'successfully uploaded video!';
+						$server_name="localhost";
+						$db_user="root";
+						$db_pass="";
+						$db_name="musette"; 
+						$con=new mysqli($server_name,$db_user,$db_pass,$db_name) or die("Unable to connect");//conection to database
+						$sql = "INSERT INTO $vname (`Name`, `URL`) VALUES ('$name', '$video')";
+						if ($con->query($sql) === TRUE)
+						{
+							echo 'successfully uploaded video!';
+						}
 					}
 				}
 				else
