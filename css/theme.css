@@ -11,9 +11,6 @@ body{
 #header, #theme{
 	background: #f3f5f6;
 }
-.container-fluid{
-	position: relative;
-}
 @media screen and (max-width: 766px){
 .jumbotron{
 	margin-top: 18px;

@@ -17,7 +17,7 @@
   }
   else
   {
-    header('location: main.htm');
+    header('location: main.php');
     die();
   }
 ?>

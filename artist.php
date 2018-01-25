@@ -141,9 +141,8 @@
         $result = $conn->query($sql);
           if ($result->num_rows > 0) 
           {
-            //echo '<link href="w3css.css" rel="stylesheet">';
-            echo '<h2 align="center"style="background:#B0E0E6;"><strong>ARTIST DETAILS</strong></h2>';
-            echo '<table class="w3-table w3-striped" align="center" style="font-size: 20px; color:White;">';         
+            echo '<h2 align="center" style="background:#B0E0E6;"><strong>ARTIST DETAILS</strong></h2>';
+            echo '<table align="center" style="font-size: 20px; color:White;">';         
               while($row = $result->fetch_assoc())
                  {
                   if($row['Username']== $name)
@@ -154,14 +153,14 @@
     echo "</table>";
 }
 ?>
-    <a href="php/artist-video.php" target="ifrm"><button class="btn btn-primary btn-lg">MY VIDEOS</button></a>
-    <a href="php/video.php" target="ifrm"><button class="btn btn-primary btn-lg">Videos</button></a>
+    <a href="php/artist-video.php" target="ifrm"><button class="btn btn-primary btn-lg lbtn">MY VIDEOS</button></a>
+    <a href="php/video.php" target="ifrm"><button class="btn btn-primary btn-lg rbtn">VIDEOS</button></a>
   </div>
   </div>
     <div class="toggle">
     <div class="right" >
-      <div class="artist-p" style=" background: #2f3680;">
-        <p align="center"><u>Featured Artists</u></p>
+      <div class="artist-p">
+        <h2 align="center" style="background:#B0E0E6;"><strong>FEATURED ARTISTS</strong></h2>
          <?php
         $servername = "localhost";
         $username = "root";
@@ -177,7 +176,7 @@
           {    
               while($row = $result->fetch_assoc())
                  {
-                  echo " <a href='#'><ul align='center' display: block;'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></ul></a>";
+                  echo " <a href='#'><li align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
                   echo "<br>";
 
                  }

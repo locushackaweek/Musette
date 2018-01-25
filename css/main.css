@@ -1,0 +1,21 @@
+.artist-p, .artist-f{
+	margin:0 auto;
+	margin-top: 20px;
+	width: 90%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	height: auto; 
+    background:cornflowerblue;
+    border-radius: 10px;
+    box-shadow: 4px 4px silver;
+}
+.artist-p a, .artist-f a{
+	text-decoration: none;
+	color: white;
+	list-style-type: none;
+	display: block;
+	padding: 10px;
+}
+.artist-p a:hover,.artist-f a:hover{
+	background: lightsteelblue;
+}

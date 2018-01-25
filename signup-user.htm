@@ -8,6 +8,7 @@
 	<link rel="icon" href="icon.png">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/signup.css">
+	<link rel="stylesheet" type="text/css" href="css/theme.css">
 	<script type="text/javascript" src="js/validate-form.js"></script>
 	<script>//validates phone number.//
 	function validate(evt)
@@ -25,6 +26,16 @@
 	</script>
 </head>
 <body>
+<!-- header -->
+<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top" id="header">
+	<img src="logo.png" alt="logo" id="logo">
+	<div class="navbar-header">
+        <a class="navbar-brand" href="#">MUSETTE</a>
+    </div>
+</div>
+<!-- body -->
+<div class="container-fluid">
 <div class="row">
 	<div class="col-md-12">
 		<form onsubmit="return checksignupuser()" action="php/signup.php" role="form" method="POST">
@@ -64,9 +75,9 @@
 				</tr>
 				<tr>
 				<td>Gender:</td> 
-				<td><input type="radio" class="gender" name="gender" value="male" checked>Male
-					<input type="radio" class="gender" name="gender" value="female">Female
-					<input type="radio" class="gender" name="gender" value="other">Other</td>
+				<td><input type="radio" class="gender" name="gender" value="Male" checked>Male
+					<input type="radio" class="gender" name="gender" value="Female">Female
+					<input type="radio" class="gender" name="gender" value="Other">Other</td>
 				</tr>		
 				<tr>
 					<td>Account Type:</td>
@@ -102,6 +113,7 @@
 			</table>
 		</form>
 	</div>
+</div>
 </div>
 </body>
 </html>

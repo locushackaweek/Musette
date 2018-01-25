@@ -1,26 +1,20 @@
-<?php
-  session_start();
-  $uname=$_SESSION["username"];
-  if (empty($uname))
-  {
-    header('location: index.php');
-  }
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Musette</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon.png">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/theme.css">
-  <link rel="stylesheet" type="text/css" href="css/loged-user.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/iframe.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/validate-form.js"></script>
+  <script src="js/iframe.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -56,14 +50,66 @@
                     <li onclick="changeAuto()"><a href="#">Choose</a></li>
                   </ul>
               </li>
-              <li id="theme"><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+              <li id="theme" data-toggle="modal" data-target="#popUpWindow"><a href="#"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 </div>
+<div id="popUpWindow" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 align="center" style="color:green" class="modal-title">LogIn</h3>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <form onsubmit="return checklogin()" action="php/login.php" role="form" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input type="Password" class="form-control" id="pwrd" name="pwrd" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label>Account</label>
+            <select class="form-control" name="account-type">
+              <option value="User">User</option>
+              <option value="Artist">Artist</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" value="1" checked><label> Remember me</label>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="form-control btn-success" value="LOG IN">
+          </div>
+        </form>
+        <a href="#">Forgot your password?</a></td>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+      <h2 align="center" class="text-primary">Signup</h2>
+        <form action="php/checksignup.php" role="form" method="post">
+          <div class="form-group">
+            <h4 align="left">Account</h4>
+            <select class="form-control" name="account-type">
+              <option value="User">User</option>
+              <option value="Artist">Artist</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <input type="submit" class="form-control btn-primary" value="SIGN UP">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!--begins the body-->
-<div class="container-fluid jumbotron">
+<div class="jumbotron container-fluid">
     <div class="col-sm-3">
       <div class="artist-p">
         <h2 align="center" style="background:#B0E0E6;"><strong>POPULAR ARTISTS</strong></h2>
@@ -112,13 +158,14 @@
                  }
           }
 ?>
-      </div>
+      </div>   
     </div>
     <div class="col-sm-9">
         <div class="iframe" style="margin: 0 auto;width:100%">
           <iframe id="ifrm" src="php/video.php" onload="setIframeHeight(this.id)" style="width:100%;border: none;"></iframe>
-        </div>         
-    </div>    	
+        </div>      
+    </div>       
 </div>
 </body>
 </html>
+

@@ -6,7 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/theme.css">
 	<link rel="stylesheet" type="text/css" href="css/signup.css">
+
 	<script type="text/javascript" src="js/validate-form.js"></script>
 	<script>
 		function checkerror()
@@ -16,6 +19,16 @@
 	</script>
 </head>
 <body onload="checkerror()">
+<!-- header -->
+<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top" id="header">
+	<img src="logo.png" alt="logo" id="logo">
+	<div class="navbar-header">
+        <a class="navbar-brand" href="#">MUSETTE</a>
+    </div>
+</div>
+<!-- body -->
+<div class="container-fluid">
 <div class="row">
 	<div class="col-md-12">
 		<form onsubmit="return checklogin()" action="php/login.php" role="form" method="POST">
@@ -48,6 +61,7 @@
 			</table>
 		</form>
 	</div>
+</div>
 </div>
 </body>
 </html>

@@ -7,13 +7,12 @@
 	margin:0 auto;
 	margin-top: 20px;
 	width: 90%;
-	max-height:500px;
 	padding-top: 10px;
 	padding-bottom: 20px;
 	height: auto; 
-    background:#2f3680;
+    background:cornflowerblue;
     border-radius: 10px;
-    box-shadow: 4px 4px gray;
+    box-shadow: 4px 4px silver;
 }
 .profile-img{
 	width: 150px;
@@ -27,6 +26,12 @@
 .upload-profile-table, .upload-cover-table{
 	width: auto;
 	margin: 0 auto;
+}
+.lbtn{
+	margin-left: 30px;
+}
+.rbtn{
+	margin-right: 30px;
 }
 .middle{
 	width: 50%;
@@ -89,6 +94,26 @@ input[type=submit]:hover{
 .artist-p{
 	height: 100%;
 	width: 100%;
+	margin:0 auto;
+	margin-top: 20px;
+	width: 90%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	height: auto; 
+    background:cornflowerblue;
+    border-radius: 10px;
+    box-shadow: 4px 4px silver;
+    color: black;
+}
+.artist-p a{
+	text-decoration: none;
+	color: white;
+	list-style-type: none;
+	display: block;
+	padding: 10px;
+}
+.artist-p a:hover{
+	background: lightsteelblue;
 }
 @media screen and (max-width: 768px)
 {

@@ -3,7 +3,6 @@
     padding: 0;
 }
 body{
-    background-color: lightblue;
     color: black;
 }
 h1{
@@ -20,6 +19,7 @@ table,tr,td{
 table{
     width: 40%;
     margin:0 auto;
+    margin-top: 50px;
 }
 input[type=submit],input[type=reset]{
     width: 100px;
@@ -57,5 +57,6 @@ input[type=Password]{
 table{
 width: 90%;
 margin:0 auto;
+margin-top: 50px;
 }
 }
