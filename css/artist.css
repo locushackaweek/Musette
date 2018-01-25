@@ -8,8 +8,12 @@
 	margin-top: 20px;
 	width: 90%;
 	max-height:500px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 	height: auto; 
     background:#2f3680;
+    border-radius: 10px;
+    box-shadow: 4px 4px gray;
 }
 .profile-img{
 	width: 150px;
@@ -85,7 +89,6 @@ input[type=submit]:hover{
 .artist-p{
 	height: 100%;
 	width: 100%;
-	background: yellow;
 }
 @media screen and (max-width: 768px)
 {

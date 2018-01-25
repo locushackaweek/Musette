@@ -36,7 +36,7 @@ while($row = $result->fetch_assoc())//getting total username in artist
 			$result = $con->query($sql);
 			while($row = $result->fetch_assoc())
 			{
-				echo '<div class="embed-responsive embed-responsive-16by9" style="margin-top:10px;>
+				echo '<div class="embed-responsive embed-responsive-16by9" style="margin-top:15px;">
 			<video controls>
 		  		<source src="'.$row["URL"].'" type="video/mp4">
 		  	</video></div>';

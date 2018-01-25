@@ -125,6 +125,8 @@
             </table>
           </form>
         </div>
+      </div>
+      <div class="profile">
         <?php
         $servername = "localhost";
         $username = "root";
@@ -140,7 +142,7 @@
           if ($result->num_rows > 0) 
           {
             //echo '<link href="w3css.css" rel="stylesheet">';
-            echo '<h2 align="center"style="background:#B0E0E6;"><u>ARTIST DETAILS</<u></h2>';
+            echo '<h2 align="center"style="background:#B0E0E6;"><strong>ARTIST DETAILS</strong></h2>';
             echo '<table class="w3-table w3-striped" align="center" style="font-size: 20px; color:White;">';         
               while($row = $result->fetch_assoc())
                  {

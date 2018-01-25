@@ -91,10 +91,18 @@
       <!--Footer-->
       <div class="modal-footer">
       <h2 align="center" class="text-primary">Signup</h2>
-        <ul align="left">
-              <a href="signup-artist.htm" style="text-decoration:none;"><li style="list-style-type: none;"><h3>Artist</h3></li></a>
-              <a href="terms.htm" style="text-decoration:none"><li style="list-style-type: none;"><h3>User</h3></li></a>
-        </ul>
+        <form action="php/checksignup.php" role="form" method="post">
+          <div class="form-group">
+            <h4 align="left">Account</h4>
+            <select class="form-control" name="account-type">
+              <option value="User">User</option>
+              <option value="Artist">Artist</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <input type="submit" class="form-control btn-primary" value="SIGN UP">
+            </div>
+        </form>
       </div>
     </div>
   </div>
