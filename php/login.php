@@ -22,7 +22,7 @@ if ($account==="User")
 	        {
 	        	$error="true";
 	        	$_SESSION["username"]=$uname;
-	        	header('location: ../loged-user.htm');
+	        	header('location: ../loged-user.php');
 	    	}
 	    }
 	}

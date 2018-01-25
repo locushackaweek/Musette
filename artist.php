@@ -1,17 +1,22 @@
 <?php
   session_start();
+  $uname=$_SESSION["username"];
+  if (empty($uname))
+  {
+    header('location: index.php');
+  }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Musette</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Musette</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="icon.png">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/theme.css">
-	<link rel="stylesheet" type="text/css" href="css/artist.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <link rel="stylesheet" type="text/css" href="css/artist.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/theme.js"></script>
@@ -19,8 +24,8 @@
 </head>
 <body>
 <div class="container-fluid">
-	<nav class="navbar navbar-default navbar-fixed-top" id="header">
-	<img src="logo.png" alt="logo" id="logo">
+  <nav class="navbar navbar-default navbar-fixed-top" id="header">
+  <img src="logo.png" alt="logo" id="logo">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,11 +38,11 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
-          	  <li>
-          	  	<form class="navbar-form navbar-left">
-            		<input type="text" class="form-control" placeholder="Search...">
-          		</form>
-          	  </li>
+              <li>
+                <form class="navbar-form navbar-left">
+                <input type="text" class="form-control" placeholder="Search...">
+              </form>
+              </li>
               <li class="dropdown" id="theme">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Theme
                     <span class="caret"></span>
@@ -71,9 +76,9 @@
 </div>
 <!--begins the body-->
 <div class="jumbotron">
-	<div class="left">
+  <div class="left">
     <div class="profile">
-      <div class="img">
+      <div class="img" align="center">
         <?php 
           $profile="upload/profile/".$_SESSION["pix"];
           if(file_exists($profile))
@@ -120,25 +125,75 @@
             </table>
           </form>
         </div>
-		</div>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "musette";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+        $name=$_SESSION["username"];
+        $sql= 'SELECT * FROM artist';
+        $result = $conn->query($sql);
+          if ($result->num_rows > 0) 
+          {
+            //echo '<link href="w3css.css" rel="stylesheet">';
+            echo '<h2 align="center"style="background:#B0E0E6;"><u>ARTIST DETAILS</<u></h2>';
+            echo '<table class="w3-table w3-striped" align="center" style="font-size: 20px; color:White;">';         
+              while($row = $result->fetch_assoc())
+                 {
+                  if($row['Username']== $name)
+                  {
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+                  }
+                 }
+    echo "</table>";
+}
+?>
+    <a href="php/artist-video.php" target="ifrm"><button class="btn btn-primary btn-lg">MY VIDEOS</button></a>
+    <a href="php/video.php" target="ifrm"><button class="btn btn-primary btn-lg">Videos</button></a>
   </div>
-  <div class="toggle">
-    <div class="right">
-      <div class="artist-p">
-        <p align="center">featured artist</p>
+  </div>
+    <div class="toggle">
+    <div class="right" >
+      <div class="artist-p" style=" background: #2f3680;">
+        <p align="center"><u>Featured Artists</u></p>
+         <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "musette";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+        $sql= 'SELECT * FROM artist';
+        $result = $conn->query($sql);
+          if ($result->num_rows > 0) 
+          {    
+              while($row = $result->fetch_assoc())
+                 {
+                  echo " <a href='#'><ul align='center' display: block;'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></ul></a>";
+                  echo "<br>";
+
+                 }
+          }
+?>
       </div>
     </div>
-		<div class="middle">
-			<div class="cover">
+    <div class="middle">
+      <div class="cover">
         <?php 
           $cover="upload/cover/".$_SESSION["pix"];
           if(file_exists($cover))
           {
-            echo "<img src='" .$cover. "' alt='cover' class='img-responsive cover-img'>";
+            echo "<img src='" .$cover. "' alt='cover' class='img-responsive img-rounded cover-img'>";
           }
           else
           {
-            echo '<img src="cover-sample.jpg" alt="cover" class="img-responsive cover-img">';
+            echo '<img src="cover-sample.jpg" alt="cover" class="img-responsive img-rounded cover-img">';
           }
         ?>
         <div class="upload-video">
@@ -158,11 +213,11 @@
             </table>
           </form>
         </div>
-			</div>
-			<div class="iframe">
-         <iframe id="ifrm" src="php/video.php" onload="setIframeHeight(this.id)" style="width:100%;border: none;"></iframe>
-			</div>
-		</div>
+      </div>
+      <div class="iframe">
+         <iframe id="ifrm" name="ifrm" src="php/video.php" onload="setIframeHeight(this.id)" style="width:100%;border: 0;"></iframe>
+      </div>
+    </div>
   </div>
 </div>
 </body>

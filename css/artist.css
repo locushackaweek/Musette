@@ -2,19 +2,18 @@
 	width:25%;
 	height: 100%;
 	position: fixed;
-	background: brown;
 }
 .profile{
-	margin-left: 10%;
-	margin-top: 10px;
-	width: 80%;
+	margin:0 auto;
+	margin-top: 20px;
+	width: 90%;
 	max-height:500px;
 	height: auto; 
+    background:#2f3680;
 }
 .profile-img{
 	width: 150px;
 	max-height:150px;
-	padding: 0 auto;
 }
 .upload-profile, .upload-cover{
 	width: 100%;
@@ -71,6 +70,7 @@ input[type=submit]:hover{
 	max-height: 100%;
 }
 .iframe{
+	min-height: 1000px;
 	width: 100%;
 	margin-top:49%;
 	z-index: 1000;

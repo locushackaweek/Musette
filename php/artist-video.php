@@ -1,4 +1,6 @@
 <?php
+session_start();
+$artistname=$_SESSION["username"];
 $server_name="localhost";
 $db_user="root";
 $db_pass="";
@@ -28,16 +30,20 @@ while($row = $result->fetch_assoc())//getting total username in artist
 		for ($i=0; $i < $c; $i++)
 		{ 
 			$tname=$username[$i];
-			$sql = "SELECT `Name`,`URL` FROM $tname";
+			if ($tname==$artistname)
+			{
+				$sql = "SELECT `Name`,`URL` FROM $tname";
 			$result = $con->query($sql);
 			while($row = $result->fetch_assoc())
 			{
-				echo '<div class="embed-responsive embed-responsive-16by9" style="margin-top:15px;">
+				echo '<div class="embed-responsive embed-responsive-16by9" style="margin-top:10px;>
 			<video controls>
 		  		<source src="'.$row["URL"].'" type="video/mp4">
 		  	</video></div>';
 		  		echo '<blockquote><p align="center" class="text-success">'.$row["Name"].'</p><footer>Uploaded by '.$tname.'</footer></blockquote>';
 			}
+			}
+			
 		}
 	?>
 </body>
