@@ -72,6 +72,7 @@
         $username = "root";
         $password = "";
         $dbname = "musette";
+        $i=1;
         $conn = new mysqli($servername, $username, $password, $dbname);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -82,9 +83,36 @@
           {    
               while($row = $result->fetch_assoc())
                  {
-                  echo " <a href='#'><li align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
-                  echo "<br>";
+                  echo " <a href='#'><li data-toggle='modal' data-target='#myModal".$i."' align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
+                  echo " 
+                      <div class='modal fade' id='myModal".$i."' role='dialog'>
+                        <div class='modal-dialog modal-lg'>
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                           
+                            </div>
+                            <div class='modal-body'>
+                              <div class='img' align='center'>
+                                <img class= 'img-rounded' src='upload/profile/".$row['Username'].".jpg' height='100px' width='100px'>
+                                <h2 align='center'style='background:#B0E0E6;'>ARTIST DETAILS</h2>
+                                <table align='center' style='font-size: 20px; color:Black;'>
+                      ";
 
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+       echo "</table>
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-success'>Hire Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+";
+
+                  echo "<br>";
+$i++;
                  }
           }
 ?>
@@ -96,6 +124,7 @@
         $username = "root";
         $password = "";
         $dbname = "musette";
+        $i=1;
         $conn = new mysqli($servername, $username, $password, $dbname);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -106,9 +135,36 @@
           {    
               while($row = $result->fetch_assoc())
                  {
-                  echo " <a href='#'><li align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
-                  echo "<br>";
+                  echo " <a href='#'><li data-toggle='modal' data-target='#myModal".$i."' align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
+                  echo " 
+                      <div class='modal fade' id='myModal".$i."' role='dialog'>
+                        <div class='modal-dialog modal-lg'>
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                           
+                            </div>
+                            <div class='modal-body'>
+                              <div class='img' align='center'>
+                                <img class= 'img-rounded' src='upload/profile/".$row['Username'].".jpg' height='100px' width='100px'>
+                                <h2 align='center'style='background:#B0E0E6;'>ARTIST DETAILS</h2>
+                                <table align='center' style='font-size: 20px; color:Black;'>
+                      ";
 
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+       echo "</table>
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-success'>Hire Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+";
+
+                  echo "<br>";
+$i++;
                  }
           }
 ?>
