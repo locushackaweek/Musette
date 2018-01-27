@@ -6,7 +6,7 @@ function getDocHeight(doc) {
     var body = doc.body, html = doc.documentElement;
     var height = Math.max( body.scrollHeight, body.offsetHeight, 
         html.clientHeight, html.scrollHeight, html.offsetHeight );
-    return height+50;
+    return height+100;
 }
 
 function setIframeHeight(id) {

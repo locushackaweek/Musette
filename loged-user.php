@@ -25,7 +25,7 @@
 <body>
 <div class="container-fluid">
 	<nav class="navbar navbar-default navbar-fixed-top" id="header">
-	<img src="logo.png" alt="logo" id="logo">
+	<a href="index.php"><img src="logo.png" alt="logo" id="logo"></a>
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">MUSETTE</a>
+          <a class="navbar-brand" href="index.php">MUSETTE</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -56,7 +56,15 @@
                     <li onclick="changeAuto()"><a href="#">Choose</a></li>
                   </ul>
               </li>
-              <li id="theme"><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+              <li class="dropdown" id="theme">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li align="center"><a href="changepw.htm">Change Password</a></li><br>
+                    <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+                  </ul>
+              </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -99,7 +107,7 @@
                                 <table align='center' style='font-size: 20px; color:Black;'>
                       ";
 
-                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Available Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
        echo "</table>
           </div>
         </div>
@@ -151,7 +159,7 @@ $i++;
                                 <table align='center' style='font-size: 20px; color:Black;'>
                       ";
 
-                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Available Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
        echo "</table>
           </div>
         </div>

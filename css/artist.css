@@ -52,6 +52,14 @@
     color: white;
     opacity: .8;
 }
+.embed-video{
+	position: absolute;
+    top: 50px;
+    right: 16px;
+    font-size: 18px;
+    color: white;
+    opacity: .8;
+}
 #fileselector {
     margin-right: 10px; 
 }
@@ -148,6 +156,23 @@ input[type=submit]:hover{
 	width: inherit;
 	height: auto;
 	position:static;
+}
+.upload-video{
+	position: static;
+	width:90%;
+	margin:0 auto;
+    top: none;
+    right: none;
+    opacity: 1;
+}
+.embed-video{
+	width: 90%;
+	margin:0 auto;
+	margin-top: 5px;
+	position: static;
+    top: none;
+    right: none;
+    opacity: 1;
 }
 .iframe{
 	margin-top: 0;

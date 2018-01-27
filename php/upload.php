@@ -21,7 +21,7 @@ if (isset($_FILES['profile'])) {
 					$location = '../upload/profile/';
 					if(move_uploaded_file($tmp_name, $location.$pix))
 					{
-						echo 'successfully uploaded profile!';
+						header('location: ../artist.php');
 					}
 				}
 				else
@@ -59,7 +59,7 @@ if (isset($_FILES['cover'])) {
 					$location = '../upload/cover/';
 					if(move_uploaded_file($tmp_name, $location.$pix))
 					{
-						echo 'successfully uploaded cover!';
+						header('location: ../artist.php');
 					}
 			}
 				else
@@ -106,7 +106,7 @@ if (isset($_FILES['video'])) {
 						$sql = "INSERT INTO $vname (`Name`, `URL`) VALUES ('$name', '$video')";
 						if ($con->query($sql) === TRUE)
 						{
-							echo 'successfully uploaded video!';
+							header('location: ../artist.php');
 						}
 					}
 				}

@@ -1,0 +1,13 @@
+h2{
+	text-align:center;
+}
+.form-content{
+	width:50%;
+	margin:0 auto;
+}
+@media screen and (max-width: 768px)
+{
+.form-content{
+	width:80%;
+}
+}

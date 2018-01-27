@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/forgotpw.css">
+	<link rel="stylesheet" type="text/css" href="css/theme.css">
+	<script type="text/javascript" src="js/forgotpw.js"></script>
+</head>
+<!-- header -->
+<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top" id="header">
+	<a href="index.php"><img src="logo.png" alt="logo" id="logo"></a>
+	<div class="navbar-header">
+        <a class="navbar-brand" href="index.php">MUSETTE</a>
+    </div>
+</div>
+<!-- body -->
+<body class="jumbotron">
+	<div class="form-content">
+	<h2 class="text-primary">REQUEST FOR NEW PASSWORD:</h2>
+	<form onsubmit="checkform()" method="post">
+		<div class="form-group">
+			<label>Username:</label>
+			<input type="text" name="Username" placeholder="Username" id="uname" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>E-mail ID:</label>
+			<input type="text" name="E-mail" placeholder="E-mail" id="email" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Enter New Password:</label>
+			<input type="password" name="Password" placeholder="Password" id="pwrd" class="form-control">
+		</div>		
+		<div class="form-group">
+			<label>Re-enter Password:</label>
+			<input type="password" name="RePassword" placeholder="Password"  id="rpwrd" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Account Type:</label>
+			<select class="form-control" name="account">
+				<option value="User">User</option>
+				<option value="Artist">Artist</option>
+			</select>
+		</div>
+		<input type="submit" value="REQUEST NEW PASSWORD" class="form-control btn btn-primary">
+	</form>
+	</div>
+	
+</body>
+</html>

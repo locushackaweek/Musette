@@ -29,15 +29,24 @@ while($row = $result->fetch_assoc())//getting total username in artist
 		for ($i=0; $i < $c; $i++)
 		{ 
 			$tname=$username[$i];
-			$sql = "SELECT `Name`,`URL` FROM $tname";
+			$sql = "SELECT `Name`,`URL`,`Embed` FROM $tname";
 			$result = $con->query($sql);
 			while($row = $result->fetch_assoc())
 			{
-				echo '<div class="embed-responsive embed-responsive-16by9 vid" style="margin-top:15px;">
-			<video controls>
-		  		<source src="'.$row["URL"].'" type="video/mp4">
-		  	</video></div>';
-		  		echo '<blockquote><p align="center" class="text-success">'.$row["Name"].'</p><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
+				if (!empty($row["URL"]))
+				{
+					echo '<div class="embed-responsive embed-responsive-16by9 vid" style="margin-top:15px;">
+				<video controls>
+			  		<source src="'.$row["URL"].'" type="video/mp4">
+			  	</video></div>';
+			  		echo '<blockquote><p align="center" class="text-success">'.$row["Name"].'</p><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
+				}
+				else
+				{
+					echo '<iframe width="560" height="315" src="'.$row["Embed"].'" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+					echo '<blockquote><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
+				}
+
 			}
 		}
 	?>

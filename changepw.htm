@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/changepw.css">
+	<link rel="stylesheet" type="text/css" href="css/theme.css">
+	<script type="text/javascript" src="js/changepw.js"></script>
+</head>
+<!-- header -->
+<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top" id="header">
+	<a href="index.php"><img src="logo.png" alt="logo" id="logo"></a>
+	<div class="navbar-header">
+        <a class="navbar-brand" href="index.php">MUSETTE</a>
+    </div>
+</div>
+<!-- body -->
+<body class="jumbotron">
+	<div class="form-content">
+	<h2 class="text-primary">CHANGE PASSWORD:</h2>
+	<form onsubmit="checkform()" method="post" action="php/changepw.php">
+				<div class="form-group">
+					<label>Enter Your Current Password:</label>
+					<input type="password" name="Password" placeholder="Password" id="pwrd" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Enter Your New Password:</label>
+					<input type="password" name="NewPassword" placeholder="New Password" id="npwrd" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Re-Enter Your New Password:</label>
+					<input type="password" name="RNewPassword" placeholder="Re-Enter Password" id="rpwrd" class="form-control">
+				</div>
+					<input type="submit" value="Submit" class="form-control btn btn-primary">
+			</form>
+	</div>
+</body>
+</html>

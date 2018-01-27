@@ -16,36 +16,46 @@ while($row = $result->fetch_assoc())//getting total username in artist
     $c=$c+1;
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Video</title>
-	<link rel="icon" href="../icon.png">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/video.css">
-</head>
-<body style="background: #eee;">
-	<?php
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Video</title>
+        <link rel="icon" href="../icon.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/video.css">
+    </head>
+
+    <body style="background: #eee;">
+        <?php
 		for ($i=0; $i < $c; $i++)
 		{ 
 			$tname=$username[$i];
 			if ($tname==$artistname)
 			{
-				$sql = "SELECT `Name`,`URL` FROM $tname";
+				$sql = "SELECT `Name`,`URL`,`Embed` FROM $tname";
 			$result = $con->query($sql);
 			while($row = $result->fetch_assoc())
 			{
-				echo '<div class="embed-responsive embed-responsive-16by9 vid" style="margin-top:15px;">
-			<video controls>
-		  		<source src="'.$row["URL"].'" type="video/mp4">
-		  	</video></div>';
-		  		echo '<blockquote><p align="center" class="text-success">'.$row["Name"].'</p><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
-			}
+				if (!empty($row["URL"]))
+				{
+					echo '<div class="embed-responsive embed-responsive-16by9 vid" style="margin-top:15px;">
+				<video controls>
+			  		<source src="'.$row["URL"].'" type="video/mp4">
+			  	</video></div>';
+			  		echo '<blockquote><p align="center" class="text-success">'.$row["Name"].'</p><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
+				}
+				else
+				{
+					echo '<iframe width="560" height="315" src="'.$row["Embed"].'" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+					echo '<blockquote><footer><strong>Uploaded by '.$tname.'</strong></footer></blockquote>';
+				}
 			}
 			
 		}
-	?>
-</body>
-</html>
+	}
+		?>
+	</body>
+	</html>

@@ -25,7 +25,7 @@
 <body>
 <div class="container-fluid">
   <nav class="navbar navbar-default navbar-fixed-top" id="header">
-  <img src="logo.png" alt="logo" id="logo">
+  <a href="index.php"><img src="logo.png" alt="logo" id="logo"></a>
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">MUSETTE</a>
+          <a class="navbar-brand" href="index.php">MUSETTE</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -68,7 +68,15 @@
                     <li>Notification 5</li>
                   </ul>
               </li>
-              <li id="theme"><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+              <li class="dropdown" id="theme">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li align="center"><a href="changepw.htm">Change Password</a></li><br>
+                    <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+                  </ul>
+              </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -147,7 +155,7 @@
                  {
                   if($row['Username']== $name)
                   {
-                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
+                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Available Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
                   }
                  }
     echo "</table>";
@@ -177,34 +185,8 @@
           {    
               while($row = $result->fetch_assoc())
                  {
-                  echo " <a href='#'><li data-toggle='modal' data-target='#myModal".$i."' align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
-                  echo " <div class = 'modal1'>
-                      <div class='modal fade' id='myModal".$i."' role='dialog'>
-                        <div class='modal-dialog modal-lg'>
-                          <div class='modal-content'>
-                            <div class='modal-header'>
-                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                           
-                            </div>
-                            <div class='modal-body'>
-                              <div class='img' align='center'>
-                                <img class= 'img-rounded' src='upload/profile/".$row['Username'].".jpg' height='100px' width='100px'>
-                                <h2 align='center'style='background:#B0E0E6;'>ARTIST DETAILS</h2>
-                                <table align='center' style='font-size: 20px; color:Black;'>
-                      ";
-
-                     echo "<tr><td><strong> Name:</strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</td></tr><tr><td><strong>Address:</strong> ".$row['Address']."</td></tr><tr><td><strong>D.O.B:</strong> ".$row['D.O.B']."</td></tr><tr><td><strong>Gender:</strong> ".$row['Gender']."</td></tr><tr><td><strong>Avaialble Time:</strong> ".$row['AvailableFrom']." to ".$row['AvailableTo']."</td></tr><tr><td><strong>Rate Per Hour:</strong> Rs ".$row['Rate']." |-</td></tr>";
-       echo "</table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-";
-
-                  echo "<br>";
-$i++;
+                  echo " <a href='#'><li align='center'><strong> ".$row['First Name']." ".$row['Middle Name']." ".$row['Last Name']."</strong></li></a>";
+     
                  }
           }
 ?>
@@ -236,6 +218,18 @@ $i++;
                     </span>
                 </td>
                 <td><input type="submit" name="submit-video" value="Upload"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="embed-video">
+          <form action="php/embed.php" method="post" enctype="multipart/form-data">
+            <table>
+              <tr>
+                <td>
+                    <input type="text" name="embed" placeholder="Embed Your Video" class="form-control" style="margin-right: 20px;">
+                </td>
+                <td><input type="submit" name="submit-video" value="Embed" style="margin-left: 12px;"></td>
               </tr>
             </table>
           </form>
